@@ -1,0 +1,133 @@
+/* ============================================================
+   Avaliação III - CSS
+   Aluno: Guilherme Henrique Machado Silveira
+   Ordem: das regras mais genéricas para as mais específicas
+   ============================================================ */
+
+/* ---------- 1. Regras gerais (elementos base) ---------- */
+
+body {
+    margin: 0;
+    background-color: #fff;
+    font-family: 'Open Sans', sans-serif;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+img {
+    display: block;
+    width: 100%;
+}
+
+/* ---------- 2. Cabeçalho ---------- */
+
+header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #1c1d20;
+}
+
+header > a {
+    letter-spacing: 0.1em;
+}
+
+/* Menu: itens lado a lado, 30px entre eles */
+nav ul {
+    display: flex;
+}
+
+nav li {
+    margin-left: 30px;
+}
+
+nav a {
+    font-family: Consolas, monospace;
+    font-weight: bold;
+}
+
+/* ---------- 3. Título da seção ---------- */
+
+h3 {
+    margin: 50px 0;
+    font-family: Consolas, monospace;
+    font-size: 1.4em;
+    text-align: center;
+}
+
+/* ---------- 4. Galeria com Flexbox ---------- */
+
+/* 80% da largura da tela: 10% de espaço para cada lado */
+section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 80%;
+    margin: 0 auto 50px;
+}
+
+/* Cada card parte de 280px e cresce para ocupar a linha,
+   mas nunca passa de 600px */
+article {
+    flex: 1 1 280px;
+    max-width: 600px;
+    text-align: center;
+}
+
+article p {
+    margin: 0;
+    font-size: 0.75em;
+    letter-spacing: 0.1em;
+    color: #888;
+}
+
+/* ---------- 5. Versão celular (de 400px até 670px) ---------- */
+
+@media (min-width: 400px) and (max-width: 670px) {
+
+    header > a {
+        font-size: 2.5em;
+    }
+
+    /* Menu vira uma coluna de botões cinza */
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px;
+    }
+
+    nav li {
+        margin-left: 0;
+    }
+
+    nav a {
+        display: block;
+        background-color: #aaa;
+    }
+
+    /* 90% da largura da tela: 5% de espaço para cada lado */
+    section {
+        width: 90%;
+        gap: 60px;
+    }
+
+    /* Um card por linha */
+    article {
+        flex-basis: 100%;
+    }
+
+    article p {
+        font-size: 1.1em;
+    }
+}
